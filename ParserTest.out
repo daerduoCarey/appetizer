@@ -1,0 +1,81 @@
+{
+    "body": {
+        "stmts": {
+            "head": {
+                "opType": "ASSIGN",
+                "left": {"sym": {"name": "a"}},
+                "right": {"value": 10}
+            },
+            "tail": {
+                "head": {
+                    "opType": "ASSIGN",
+                    "left": {"sym": {"name": "b"}},
+                    "right": {
+                        "opType": "TIMES",
+                        "left": {"value": 10},
+                        "right": {"value": 3}
+                    }
+                },
+                "tail": {
+                    "head": {
+                        "opType": "ASSIGN",
+                        "left": {"sym": {"name": "c"}},
+                        "right": {
+                            "opType": "PLUS",
+                            "left": {"value": 10},
+                            "right": {"value": 10}
+                        }
+                    },
+                    "tail": {
+                        "head": {
+                            "opType": "ASSIGN",
+                            "left": {"sym": {"name": "max"}},
+                            "right": {"sym": {"name": "a"}}
+                        },
+                        "tail": {
+                            "head": {
+                                "body": {"stmts": {"head": {
+                                    "opType": "ASSIGN",
+                                    "left": {"sym": {"name": "max"}},
+                                    "right": {"sym": {"name": "b"}}
+                                }}},
+                                "cond": {
+                                    "opType": "GT",
+                                    "left": {"sym": {"name": "b"}},
+                                    "right": {"sym": {"name": "max"}}
+                                }
+                            },
+                            "tail": {
+                                "head": {
+                                    "body": {"stmts": {"head": {
+                                        "opType": "ASSIGN",
+                                        "left": {"sym": {"name": "max"}},
+                                        "right": {"sym": {"name": "c"}}
+                                    }}},
+                                    "cond": {
+                                        "opType": "GT",
+                                        "left": {"sym": {"name": "c"}},
+                                        "right": {"sym": {"name": "max"}}
+                                    }
+                                },
+                                "tail": {"head": {"expr": {"sym": {"name": "max"}}}}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "decls": {
+            "head": {"sym": {"name": "a"}},
+            "tail": {
+                "head": {"sym": {"name": "b"}},
+                "tail": {
+                    "head": {"sym": {"name": "c"}},
+                    "tail": {"head": {"sym": {"name": "max"}}}
+                }
+            }
+        }
+    },
+    "sym": {"name": "main"}
+}
+{"sym":{"name":"main"},"body":{"decls":{"head":{"sym":{"name":"a"}},"tail":{"head":{"sym":{"name":"b"}},"tail":{"head":{"sym":{"name":"c"}},"tail":{"head":{"sym":{"name":"max"}}}}}},"stmts":{"head":{"left":{"sym":{"name":"a"}},"right":{"value":10},"opType":"ASSIGN"},"tail":{"head":{"left":{"sym":{"name":"b"}},"right":{"left":{"value":10},"right":{"value":3},"opType":"TIMES"},"opType":"ASSIGN"},"tail":{"head":{"left":{"sym":{"name":"c"}},"right":{"left":{"value":10},"right":{"value":10},"opType":"PLUS"},"opType":"ASSIGN"},"tail":{"head":{"left":{"sym":{"name":"max"}},"right":{"sym":{"name":"a"}},"opType":"ASSIGN"},"tail":{"head":{"cond":{"left":{"sym":{"name":"b"}},"right":{"sym":{"name":"max"}},"opType":"GT"},"body":{"stmts":{"head":{"left":{"sym":{"name":"max"}},"right":{"sym":{"name":"b"}},"opType":"ASSIGN"}}}},"tail":{"head":{"cond":{"left":{"sym":{"name":"c"}},"right":{"sym":{"name":"max"}},"opType":"GT"},"body":{"stmts":{"head":{"left":{"sym":{"name":"max"}},"right":{"sym":{"name":"c"}},"opType":"ASSIGN"}}}},"tail":{"head":{"expr":{"sym":{"name":"max"}}}}}}}}}}}}
